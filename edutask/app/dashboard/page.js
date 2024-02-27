@@ -1,7 +1,6 @@
 "use client"
-import React from 'react'
-import TaskCounter from './TaskCounter' // Import TaskCounter component
 import DashboardLayout from './dashboardlayout' // Import DashboardLayout component
+import TaskCounter from '@/components/TaskCounter'
 
 const Dashboard = () => {
   return (
