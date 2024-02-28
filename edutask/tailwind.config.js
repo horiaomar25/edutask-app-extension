@@ -14,9 +14,14 @@ export const theme = {
     },
     colors: {
       "purple": '#8338EC',
+      "gradient-purple": "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(131,32,217,1) 0%, rgba(215,120,249,1) 100%);",
+      "purple-two": "#9854CC"
     },
     fontFamily: {
       'poppins': ['Poppins', 'san-serif'],
+    },
+    backgroundImage: {
+      'gradient-purple': 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(131,32,217,1) 0%, rgba(215,120,249,1) 100%)',
     }
   },
 };

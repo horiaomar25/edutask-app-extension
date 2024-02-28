@@ -1,6 +1,5 @@
-
 import { styled, useTheme } from "@mui/material/styles";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,6 +17,10 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
+
+const DynamicNavigation = dynamic(() => import('./Navigation'), { ssr: false });
+
 
 const drawerWidth = 240;
 
@@ -103,24 +106,48 @@ export default function Navigation() {
           {["Dashboard", "Tasks", "Idea Board"].map((text, index) => (
             <Link href={`/${text.toLowerCase().replace(/\s/g, '-')}`} key={text} passHref>
               <ListItem disablePadding className="block font-poppins">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
+              <ListItemButton
+  className="relative w-1/2"
+  sx={{
+    position: "relative",
+    "&:hover": {
+      "& .MuiListItemIcon-root, .MuiListItemText-primary": {
+        color: theme.palette.primary.main, // Change icon and text color on hover
+      },
+      "& .MuiTouchRipple-root": {
+        display: "none", // Remove the ripple effect on hover
+      },
+      "& .hover-bg": {
+        opacity: 2, // Make the background gradient visible on hover
+        backgroundImage:
+          "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(131,32,217,1) 0%, rgba(215,120,249,1) 100%)", // Apply the specified gradient
+      },
+    },
+  }}
+>
+  <ListItemIcon
+    sx={{
+      minWidth: 0,
+      mr: open ? 3 : "auto",
+      justifyContent: "center",
+    }}
+  >
+    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+  </ListItemIcon>
+  <ListItemText
+    primary={text}
+    sx={{
+      opacity: open ? 1 : 0,
+      color: "black", // Set text color to black
+      fontWeight: "bold", // Set text to bold
+      "&:hover": {
+        color: "black", // Set text color to black on hover
+      },
+    }}
+  />
+  {/* Gradient background element */}
+
+</ListItemButton>
               </ListItem>
             </Link>
           ))}
@@ -129,4 +156,5 @@ export default function Navigation() {
     </Box>
   );
 }
+
 

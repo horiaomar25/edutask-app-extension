@@ -1,5 +1,6 @@
 "use client"
 import TaskLayout from './taskslayout'
+import Navigation from '@/components/Navigation'
 
 const page = () => {
   return (
