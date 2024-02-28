@@ -1,5 +1,6 @@
+
 import { styled, useTheme } from "@mui/material/styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
@@ -100,27 +101,27 @@ export default function Navigation() {
         <Divider />
         <List>
           {["Dashboard", "Tasks", "Idea Board"].map((text, index) => (
-            <Link href={`/${text.toLowerCase().replace(/\s/g, '-')}`} key={text}>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+            <Link href={`/${text.toLowerCase().replace(/\s/g, '-')}`} key={text} passHref>
+              <ListItem disablePadding className="block font-poppins">
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
             </Link>
           ))}
         </List>
@@ -128,3 +129,4 @@ export default function Navigation() {
     </Box>
   );
 }
+

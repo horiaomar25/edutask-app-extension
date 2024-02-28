@@ -1,9 +1,11 @@
-import React from 'react'
-
 const TaskCounter = () => {
   return (
-    <div>TaskCounter</div>
+    <section className='flex justify-center items-center m-6 '>
+      <div className='border border-black w-1/2 text-center bg-purple rounded-sm'>
+        <p>TaskCounter</p>
+      </div>
+    </section>
   )
 }
 
-export default TaskCounter
+export default TaskCounter;

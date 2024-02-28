@@ -1,11 +1,12 @@
 "use client"
 import DashboardLayout from './dashboardlayout' // Import DashboardLayout component
-import Navigation from '@/components/Navigation'
+import TaskCounter from '@/components/TaskCounter'
+
 
 const Dashboard = () => {
   return (
     <DashboardLayout>
-     <Navigation/>
+    <TaskCounter/>
     </DashboardLayout>
   )
 
