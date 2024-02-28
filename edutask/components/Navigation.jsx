@@ -16,6 +16,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import Link from "next/link";
 
 const drawerWidth = 240;
 
@@ -81,12 +82,16 @@ export default function Navigation() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-    
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
             {open ? (
-              theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />
+              theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )
             ) : (
               <MenuIcon />
             )}
@@ -95,7 +100,8 @@ export default function Navigation() {
         <Divider />
         <List>
           {["Dashboard", "Tasks", "Idea Board"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+            <Link href={`/${text.toLowerCase().replace(/\s/g, '-')}`} key={text}>
+            <ListItem disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -115,10 +121,10 @@ export default function Navigation() {
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
     </Box>
   );
-                }  
-
+}
