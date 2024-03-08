@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Navigation from "@/components/Navigation";
-import dynamic from 'next/dynamic';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +12,13 @@ export const metadata = {
 
 
 
-const DynamicNavigation = dynamic(() => import('@/components/Navigation'), { ssr: false });
+
 
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <DynamicNavigation/>
+     <Navigation/>
       <body className="bg-white">{children}</body>
     </html>
   );

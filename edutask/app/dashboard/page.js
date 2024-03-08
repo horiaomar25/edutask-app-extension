@@ -3,6 +3,7 @@ import DashboardLayout from './dashboardlayout' // Import DashboardLayout compon
 import TaskCounter from '@/components/TaskCounter'
 import MiniTaskCards from '@/components/MiniTaskCards'
 import TaskData from '@/data/TaskData'
+import Navigation from '@/components/Navigation'
 
 
 const Dashboard = () => {
@@ -10,6 +11,7 @@ const Dashboard = () => {
    
   return (
     <DashboardLayout>
+      
     <TaskCounter/>
     <MiniTaskCards tasks={tasks}/>
     </DashboardLayout>

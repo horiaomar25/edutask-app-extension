@@ -6,7 +6,7 @@ const MiniTaskCards = ({ tasks }) => {
   return (
     <section className='flex justify-center items-center flex-row'>
       {dailyTasks.map((task, index) => (
-        <div key={index} className="border border-black w-96 h-60  rounded-md p-4 bg-white  ml-14">
+        <div key={index} className="border border-black w-96 h-60  rounded-md p-4 bg-white  ml-10">
           <p className='text-2xl '>{task.task_name}</p>
           <hr className="w-full bg-black"/>
           {/* Task Description */}

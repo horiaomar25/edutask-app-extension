@@ -15,13 +15,13 @@ const TaskCounter = () => {
         <Button size="medium" className='bg-purple'>Medium</Button>
       </div>
       <div className="absolute right-0 top-0 -mt-10 mr-10">
-        <Image 
+        {/* <Image 
           src={'https://img.freepik.com/free-vector/eco-education-concept-illustration_114360-6347.jpg?t=st=1709142306~exp=1709145906~hmac=bcc9b681d0787095a180d0a6dd02e1716e6f1f44ab2b2c1eb35f058cc8b8dfc5&w=1060'} 
           alt="teacher illustration" 
-          width={300} 
+          width={100} 
           height={100}
           className='rounded-full border border-black mt-8 ml-10'
-        />
+        /> */}
       </div>
     </section>
   );
