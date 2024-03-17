@@ -26,9 +26,10 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const drawerWidth = 240;
 const navItems = [
-  { text: "Home", icon: <HomeIcon />, href: "/" },
+ 
   { text: "Dashboard", icon: <DashboardIcon />, href: "/dashboard"},
   { text: "Tasks", icon: <TaskIcon />, href: "/tasks" },
+  { text: "Idea Board", href: "/idea-board"}
 ];
 
 const Navigation = (props) => {
